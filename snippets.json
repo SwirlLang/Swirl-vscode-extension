@@ -56,5 +56,21 @@
 			"end\n"
 		],
 		"description": "snippet for if else statement"
+	},
+	"for loop":{
+		"prefix":["for","for loop"],
+		"body": [
+			"for i in $1",
+			"    $2",
+			"end"
+		]
+	},
+	"while loop":{
+		"prefix":["while","while loop"],
+		"body": [
+			"while true",
+			"    $2",
+			"end"
+		]
 	}
 }

@@ -6,7 +6,7 @@
 			"include": "#keywords"
 		},
 		{
-			"include": "#types"
+			"include": "#datatypes"
 		},
 		{
 			"include": "#comments"
@@ -14,21 +14,36 @@
 	],
 	"repository": {
 		"keywords": {
-			"patterns": [{
-				"name": "keyword.control.lc",
-				"match": "\\b(if|while|for|else|elseif|return|func|end)\\b"
-			}]
-		},
-		"types": {
 			"patterns": [
 				{
-					"name": "storage.type",
-					"match": "int|string|float|array"
+					"name":"keyword.control.lc",
+					"match": "\\b(end|for|while|func|true|false)\\b"
+				},
+				{
+					"name":"keyword.control.flow.lc",
+					"match": "\\b(break|continue|return)\\b"
+				},
+				{
+					"name":"keyword.control.conditional.lc",
+					"match": "\\b(if|else|elseif|)\\b"
+				}
+		]
+		},
+		"datatypes": {
+			"patterns": [
+				{
+					"name": "storage.type.lc",
+					"match": "\\b(int|string|float|array)\\b"
 				}
 			]
 		},
 		"comments":{
 			"patterns": [
+				{
+					"name":"comment.block",
+					"begin": "///",
+					"end": "///"
+				},
 				{
 					"name":"comment.line",
 					"match": "//.*"

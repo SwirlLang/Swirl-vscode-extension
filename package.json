@@ -1,9 +1,12 @@
 {
     "name": "lc-lang-support",
     "displayName": "Lambda Code",
+	"license": "GPL 2.0",
+	"homepage": "https://github.com/MrinmoyHaloi/LC-vscode-extension",
+	"repository": "https://github.com/MrinmoyHaloi/LC-vscode-extension.git",
 	"icon": "icon.png",
     "description": "language support for lambda code programming language",
-    "version": "0.0.1",
+    "version": "0.0.2",
 	"publisher": "MrinmoyHaloi",
     "engines": {
         "vscode": "^1.60.0"
