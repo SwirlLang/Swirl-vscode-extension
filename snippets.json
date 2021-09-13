@@ -1,0 +1,60 @@
+{
+	"Function": {
+		"prefix": "func",
+		"body": [
+			"func $1($2)",
+			"    $3",
+			"end"
+		],
+		"description": "snipper for function"
+	},
+
+	"if statement": {
+		"prefix": "if",
+		"body": [
+			"if $1",
+			"    $3",
+			"end"
+		],
+		"description": "snippet for if statement"
+	},
+	"if elseif statement": {
+		"prefix": "if elseif",
+		"body": [
+			"if $1",
+			"    $2",
+			"elseif $3",
+			"    $4",
+			"end\n"
+
+		],
+		"description": "snippet for if elseif statement"
+	},
+	"if elseif else statement ": {
+		"prefix": "if elseif else",
+		"body": [
+			"if $1",
+			"    $2",
+
+			"elseif $3",
+			"    $4",
+
+			"else",
+			"    $5",
+			"end\n"
+		],
+		"description": "snippet for if eleif else statement"
+	},
+	"if else statement": {
+		"prefix": "if else",
+		"body": [
+			"if $1",
+			"    $2",
+
+			"else",
+			"    $3",
+			"end\n"
+		],
+		"description": "snippet for if else statement"
+	}
+}
