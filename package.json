@@ -1,36 +1,46 @@
 {
-    "name": "lc-lang-support",
-    "displayName": "Lambda Code",
-	"license": "GPL 2.0",
-	"homepage": "https://github.com/MrinmoyHaloi/LC-vscode-extension",
-	"repository": "https://github.com/MrinmoyHaloi/LC-vscode-extension.git",
-	"icon": "icon.png",
-    "description": "language support for lambda code programming language",
-    "version": "0.0.2",
-	"publisher": "MrinmoyHaloi",
-    "engines": {
-        "vscode": "^1.60.0"
-    },
-    "categories": [
-        "Programming Languages"
+  "name": "lc-lang-support",
+  "displayName": "Lambda Code",
+  "license": "GPL 2.0",
+  "homepage": "https://github.com/MrinmoyHaloi/LC-vscode-extension",
+  "repository": "https://github.com/MrinmoyHaloi/LC-vscode-extension.git",
+  "icon": "icon.png",
+  "description": "language support for lambda code programming language",
+  "version": "0.0.3",
+  "publisher": "MrinmoyHaloi",
+  "engines": {
+    "vscode": "^1.59.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [
+      {
+        "id": "lc",
+        "aliases": [
+          "Lambda Code",
+          "lc",
+          "lambdacode"
+        ],
+        "extensions": [
+          ".lc"
+        ],
+        "configuration": "./language-configuration.json"
+      }
     ],
-    "contributes": {
-        "languages": [{
-            "id": "lc",
-            "aliases": ["Lambda Code", "lc"],
-            "extensions": [".lc"],
-            "configuration": "./language-configuration.json"
-        }],
-        "grammars": [{
-            "language": "lc",
-            "scopeName": "source.lc",
-            "path": "./syntaxes/lc.tmLanguage.json"
-        }],
-		"snippets": [
-			{
-				"language": "lc",
-				"path": "./snippets.json"
-			}
-		]
-    }
+    "grammars": [
+      {
+        "language": "lc",
+        "scopeName": "source.lc",
+        "path": "./syntaxes/lc.tmLanguage.json"
+      }
+    ],
+    "snippets": [
+      {
+        "language": "lc",
+        "path": "./snippets.json"
+      }
+    ]
+  }
 }

@@ -17,7 +17,8 @@
         ["[", "]"],
         ["(", ")"],
         ["\"", "\""],
-        ["'", "'"]
+        ["'", "'"],
+		{ "open": "///", "close": "///", "notIn": ["string","comment"] },
     ],
     // symbols that can be used to surround a selection
     "surroundingPairs": [
@@ -34,7 +35,15 @@
 		},
 		"if statement": {
 		  "start": "^if (\\w*)\\(\\)",
-		  "end": "$end"
-		}
+		  "end": "$endif"
+		},
+		"for statement": {
+		  "start": "^for (\\w*)\\(\\)",
+		  "end": "$endfor"
+		},
+		"while statement": {
+		  "start": "^while (\\w*)\\(\\)",
+		  "end": "$endwhile"
+		},
 	  },
 }

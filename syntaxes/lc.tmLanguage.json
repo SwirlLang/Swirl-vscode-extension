@@ -6,10 +6,16 @@
 			"include": "#keywords"
 		},
 		{
-			"include": "#datatypes"
+			"include": "#datatype"
 		},
 		{
 			"include": "#comments"
+		},
+		{
+			"include":"#func&class"
+		},
+		{
+			"include":"#strings"
 		}
 	],
 	"repository": {
@@ -17,23 +23,75 @@
 			"patterns": [
 				{
 					"name":"keyword.control.lc",
-					"match": "\\b(end|for|while|func|true|false)\\b"
+					"match":"\\b(endif|endfor|endwhile|for|while)\\b"
+				},
+				{
+					"name":"constant.language.lc",
+					"match":"\\b(true|false)\\b"
+				},
+				{
+					"name":"keyword.control.lc",
+					"match":"(?<!.)#import(\\s+)?(?=(\".*\"))"
+				},
+				{
+					"name":"keyword.control.conditional.lc",
+					"match": "\\b(if|else|elseif)\\b"
 				},
 				{
 					"name":"keyword.control.flow.lc",
 					"match": "\\b(break|continue|return)\\b"
 				},
 				{
-					"name":"keyword.control.conditional.lc",
-					"match": "\\b(if|else|elseif|)\\b"
+					"name":"keyword.control.operator.lc",
+					"match":"\\b(and|or)\\b"
 				}
-		]
+			]
 		},
-		"datatypes": {
+		"datatype": {
 			"patterns": [
 				{
-					"name": "storage.type.lc",
-					"match": "\\b(int|string|float|array)\\b"
+					"name": "entity.name.type.lc",
+					"match": "\\b(int|string|float|array|(const))\\b",
+					"captures":{
+						"2":{ "name":"storage.type.lc" }
+					}
+				},
+				{
+					"name": "constant.numeric.lc",
+					"match":"\\b\\d+\\b"
+				},
+				{
+					"name":"storage.type.var.lc",
+					"match":"(?<=array )\\w+"
+				}
+			]
+		},
+		"func&class": {
+			"patterns": [
+				{
+					"name":"entity.name.function.lc",
+					"match": "(?<=func) (\\w+)(?=\\((.*)?\\))"
+				},
+				{
+					"name":"storage.type.function",
+					"match": "\\b(func|endfunc)\\b"
+				},
+				{
+					"name":"support.function.builtin.lc",
+					"match":"(print)(?=\\(.*?\\))"
+				},
+				{
+					"begin":"(class) (.*)\\((.*)?\\)",
+					"beginCaptures":{
+						"1":{"name":"storage.type.class.lc"},
+						"2":{"name":"entity.name.type.class.lc"},
+						"3":{"name":"variable.parameter.class.lc"}
+
+					},
+					"end":"endclass",
+					"endCaptures":{
+						"0":{"name":"storage.type.class.lc"}
+					}
 				}
 			]
 		},
@@ -47,6 +105,19 @@
 				{
 					"name":"comment.line",
 					"match": "//.*"
+				}
+			]
+		},
+		"strings":{
+			"patterns": [
+				{
+					"name": "string.quoted.multi.lc",
+					"begin": "(\\'\\'\\'|\"\"\")",
+					"end": "(\\'\\'\\'|\"\"\")"
+				},
+				{
+					"name":"string.quoted.lc",
+					"match":"(\".*?\"|\\'.*?\\')"
 				}
 			]
 		}
