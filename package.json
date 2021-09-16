@@ -6,7 +6,7 @@
   "repository": "https://github.com/MrinmoyHaloi/LC-vscode-extension.git",
   "icon": "icon.png",
   "description": "language support for lambda code programming language",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "publisher": "MrinmoyHaloi",
   "engines": {
     "vscode": "^1.59.0"
@@ -14,6 +14,10 @@
   "categories": [
     "Programming Languages"
   ],
+  "activationEvents": [
+	"onCommand:extension.helloWorld"
+  ],
+  "main":"./extension.js",
   "contributes": {
     "languages": [
       {
@@ -29,6 +33,12 @@
         "configuration": "./language-configuration.json"
       }
     ],
+	"commands": [
+		{
+			"command": "extension.helloWorld",
+			"title": "Hello World"
+		}
+	],
     "grammars": [
       {
         "language": "lc",
