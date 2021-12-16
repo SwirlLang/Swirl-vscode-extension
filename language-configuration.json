@@ -45,5 +45,9 @@
 		  "start": "^while (\\w*)\\(\\)",
 		  "end": "$endwhile"
 		},
+        "classes": {
+          "start": "^class \\w*?\\(\\).*",
+          "end": "$end"
+        },
 	  },
 }
