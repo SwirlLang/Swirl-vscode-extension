@@ -1,3 +1,7 @@
+Version 0.1.1
+
+1. Added input builtin function
+
 Version 0.1.0
 
 1. Added new builtin functions
