@@ -4,7 +4,7 @@
 
 ## This extension enables Lambda Code programming language support in vscode.
 
-#### ( Syntax highlighting only. autocomplete, debugging and other features will come later )
+#### ( Intellisense coming soon )
 
 <br>
 Lambda code is a new high level, compiled, statically typed, object-oriented programming language. The language is in development for now.

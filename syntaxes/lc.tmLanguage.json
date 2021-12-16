@@ -19,22 +19,69 @@
 		}
 	],
 	"repository": {
+        "func&class": {
+            "patterns": [
+                {
+                    "name":"entity.name.function.lc",
+                    "match": "(?<=func) (\\w+)(?=\\((.*)?\\))"
+                },
+                {
+                    "name":"storage.type.function.lc",
+                    "match": "\\b(func|endfunc)\\b"
+                },
+                {
+                    "name":"support.function.builtin.lc",
+                    "match":"(print|range|find|count|findall|string|int|float|bool)(?=\\(.*?\\))"
+                },
+                {
+                    "begin":"\\b(class)\\b\\s(.+)\\(.*?\\)",
+                    "patterns": [
+                        {"include": "$self"}
+                    ],
+                    "beginCaptures":{
+                        "1":{"name":"storage.type.class.lc"},
+                        "2":{"name":"entity.name.class.lc"}
+
+                    },
+                    "end":"endclass",
+                    "endCaptures":{
+                        "0":{"name":"storage.type.class.lc"}
+                    }
+                }
+            ]
+        },
 		"keywords": {
 			"patterns": [
+                {
+                    "name":"keyword.operator.arithmetic.lc",
+                    "match": "(\\+|\\-|\\*|\\/|\\%)(?!=)"
+                },
+                {
+                    "name":"keyword.operator.bitwise.lc",
+                    "match": "(&|\\||\\^|\\~|<<|>>)(?!=)"
+                },
+                {
+                    "name": "keyword.operator.assignment.lc",
+                    "match": "(=|\\+\\+|--|\\+=|-=|\\*=|\/=)(?!=)"
+                },
+                {
+                    "name": "keyword.operator.comparison.lc",
+                    "match": "(==|\\!=|\\<=|\\>=|\\<|\\>)(?!=)"
+                },
 				{
 					"name":"keyword.control.lc",
-					"match":"\\b(endif|endfor|endwhile|for|while|in)\\b"
+					"match":"\\b(endif|endfor|endwhile|for|while|in|override|private|public|protected)\\b"
 				},
 				{
 					"name":"constant.language.lc",
 					"match":"\\b(true|false)\\b"
 				},
 				{
-					"name":"keyword.control.lc",
-					"match":"(?<!.)#import(\\s+)?(?=(\".*\"))"
+					"name":"keyword.import.lc",
+					"match":"(?<!.)#import(\\s+)?(?=(.*))"
 				},
 				{
-					"name":"keyword.control.lc",
+					"name":"keyword.class.lc",
 					"match":"\\binherits\\b"
 				},
 				{
@@ -55,7 +102,7 @@
 			"patterns": [
 				{
 					"name": "entity.name.type.lc",
-					"match": "\\b(int|string|float|array)\\b"
+					"match": "\\b(int|string|float|bool|list|void)\\b"
 				},
                 {
                     "name":"storage.type.lc",
@@ -64,42 +111,6 @@
 				{
 					"name": "constant.numeric.lc",
 					"match":"\\b\\d+\\b"
-				},
-				{
-					"name":"storage.type.var.lc",
-					"match":"(?<=array )\\w+"
-				}
-			]
-		},
-		"func&class": {
-			"patterns": [
-				{
-					"name":"entity.name.function.lc",
-					"match": "(?<=func) (\\w+)(?=\\((.*)?\\))"
-				},
-				{
-					"name":"storage.type.function",
-					"match": "\\b(func|endfunc)\\b"
-				},
-				{
-					"name":"support.function.builtin.lc",
-					"match":"(print)(?=\\(.*?\\))"
-				},
-				{
-					"begin":"\\b(class)\\b( (.*)\\((.*)?\\))?",
-					"patterns": [
-						{"include": "$self"}
-					],
-					"beginCaptures":{
-						"1":{"name":"storage.type.class.lc"},
-						"3":{"name":"entity.name.class.lc"},
-						"4":{"name":"variable.parameter.class.lc"}
-
-					},
-					"end":"endclass",
-					"endCaptures":{
-						"0":{"name":"storage.type.class.lc"}
-					}
 				}
 			]
 		},

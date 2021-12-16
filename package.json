@@ -6,7 +6,7 @@
   "repository": "https://github.com/Lambda-Code-Organization/LC-vscode-extension",
   "icon": "icon.png",
   "description": "language support for lambda code programming language",
-  "version": "0.0.5",
+  "version": "0.1.0",
   "publisher": "MrinmoyHaloi",
   "engines": {
     "vscode": "^1.59.0"

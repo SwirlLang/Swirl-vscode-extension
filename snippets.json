@@ -64,13 +64,13 @@
 	"import statement":{
 		"prefix":["import","#import"],
 		"body": [
-			"#import \"${0:library}\""
+			"#import ${0:library}"
 		]
 	},
     "import statement with alias":{
         "prefix":["import","#import"],
         "body": [
-            "#import \"${0:library}\" as ${1:alias}"
+            "#import ${0:library} as ${1:alias}"
         ]
     },
     "class":{
