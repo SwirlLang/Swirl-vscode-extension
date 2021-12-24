@@ -5,12 +5,16 @@
   "homepage": "https://github.com/Lambda-Code-Organization/LC-vscode-extension",
   "repository": "https://github.com/Lambda-Code-Organization/LC-vscode-extension",
   "icon": "icon.png",
-  "description": "language support for lambda code programming language",
-  "version": "0.1.1",
+  "description": "Lambda Code programming language support",
+  "version": "0.2.0",
   "publisher": "MrinmoyHaloi",
   "engines": {
     "vscode": "^1.59.0"
   },
+  "activationEvents": [
+    "onLanguage:lc"
+  ],
+  "main": "extension.js",
   "categories": [
     "Programming Languages"
   ],
@@ -42,6 +46,11 @@
         "language": "lc",
         "path": "./snippets.json"
       }
+    ],
+    "commands": [
     ]
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.32.0"
   }
 }

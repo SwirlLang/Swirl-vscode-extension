@@ -2,15 +2,15 @@
 	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
 	"name": "Lambda Code",
 	"patterns": [
-		{
-			"include": "#keywords"
+        {
+            "include": "#datatype"
 		},
 		{
-			"include": "#datatype"
+            "include": "#comments"
 		},
-		{
-			"include": "#comments"
-		},
+        {
+            "include": "#keywords"
+        },
 		{
 			"include":"#func&class"
 		},
@@ -31,7 +31,7 @@
                 },
                 {
                     "name":"support.function.builtin.lc",
-                    "match":"(print|input|range|find|count|findall|string|int|float|bool)(?=\\(.*?\\))"
+                    "match":"(print|input|range|find|count|findall|string|int|float|bool|len|exit)(?=\\(.*?\\))"
                 },
                 {
                     "begin":"\\b(class)\\b\\s(.+)\\(.*?\\)",
@@ -47,6 +47,19 @@
                     "endCaptures":{
                         "0":{"name":"storage.type.class.lc"}
                     }
+                }
+            ]
+        },
+        "comments":{
+            "patterns": [
+                {
+                    "name":"comment.block",
+                    "begin": "///",
+                    "end": "///"
+                },
+                {
+                    "name":"comment.line",
+                    "match": "//.*"
                 }
             ]
         },
@@ -70,7 +83,7 @@
                 },
 				{
 					"name":"keyword.control.lc",
-					"match":"\\b(endif|endfor|endwhile|for|while|in|override|private|public|protected)\\b"
+					"match":"\\b(endif|endfor|endwhile|for|while|in|override|private|public|protected|type)\\b"
 				},
 				{
 					"name":"constant.language.lc",
@@ -111,19 +124,6 @@
 				{
 					"name": "constant.numeric.lc",
 					"match":"\\b\\d+\\b"
-				}
-			]
-		},
-		"comments":{
-			"patterns": [
-				{
-					"name":"comment.block",
-					"begin": "///",
-					"end": "///"
-				},
-				{
-					"name":"comment.line",
-					"match": "//.*"
 				}
 			]
 		},

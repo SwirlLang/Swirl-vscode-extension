@@ -1,3 +1,10 @@
+Version 0.2.0
+
+1. Added basic autocomplete for builtin functions
+2. Added snippets for int, float, string, bool and list data types variables
+3. Added len and exit to builtin functions
+4. Added type keyword
+
 Version 0.1.1
 
 1. Added input builtin function
