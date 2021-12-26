@@ -1,3 +1,11 @@
+Version 0.3.0
+
+1. Show documention of builtin functions on hover
+2. Removed variables snippets because its useless
+3. Fixed syntax highlighting not working between paranthisis of classes
+4. Added `as` keyword
+5. Removed triple quoted strings
+
 Version 0.2.0
 
 1. Added basic autocomplete for builtin functions

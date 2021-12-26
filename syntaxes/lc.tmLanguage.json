@@ -34,16 +34,17 @@
                     "match":"(print|input|range|find|count|findall|string|int|float|bool|len|exit)(?=\\(.*?\\))"
                 },
                 {
-                    "begin":"\\b(class)\\b\\s(.+)\\(.*?\\)",
+                    "begin":"\\b(class)\\b\\s(.+)\\((.*?)\\)",
                     "patterns": [
                         {"include": "$self"}
                     ],
                     "beginCaptures":{
                         "1":{"name":"storage.type.class.lc"},
-                        "2":{"name":"entity.name.class.lc"}
+                        "2":{"name":"entity.name.class.lc"},
+                        "3":{"patterns": [{"include": "$self"}]}
 
                     },
-                    "end":"endclass",
+                    "end":"(endclass)",
                     "endCaptures":{
                         "0":{"name":"storage.type.class.lc"}
                     }
@@ -83,14 +84,14 @@
                 },
 				{
 					"name":"keyword.control.lc",
-					"match":"\\b(endif|endfor|endwhile|for|while|in|override|private|public|protected|type)\\b"
+					"match":"\\b(endif|endfor|endwhile|for|while|in|override|private|public|protected|type|as)\\b"
 				},
 				{
 					"name":"constant.language.lc",
 					"match":"\\b(true|false)\\b"
 				},
 				{
-					"name":"keyword.import.lc",
+					"name":"keyword.control.import.lc",
 					"match":"(?<!.)#import(\\s+)?(?=(.*))"
 				},
 				{
@@ -129,11 +130,6 @@
 		},
 		"strings":{
 			"patterns": [
-				{
-					"name": "string.quoted.multi.lc",
-					"begin": "(\\'\\'\\'|\"\"\")",
-					"end": "(\\'\\'\\'|\"\"\")"
-				},
 				{
 					"name":"string.quoted.lc",
 					"match":"(\".*?\"|\\'.*?\\')"

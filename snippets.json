@@ -88,35 +88,5 @@
             "    $0",
             "endclass\n"
         ]
-    },
-    "variable with int type":{
-        "prefix":"int",
-        "body":[
-            "int ${1:name} = ${2:value}"
-        ]
-    },
-    "variable with string type":{
-        "prefix":"string",
-        "body":[
-            "string ${1:name} = ${2:value}"
-        ]
-    },
-    "variable with float type":{
-        "prefix":"float",
-        "body":[
-            "float ${1:name} = ${2:value}"
-        ]
-    },
-    "variable with bool type":{
-        "prefix":"bool",
-        "body":[
-            "bool ${1:name} = ${2:value}"
-        ]
-    },
-    "variable with list type":{
-        "prefix":"list",
-        "body":[
-            "list ${1:name} = [$0]"
-        ]
     }
 }

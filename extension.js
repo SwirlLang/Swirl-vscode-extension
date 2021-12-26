@@ -30,12 +30,12 @@ function activate(context) {
         'exit'
     ];
     const funcs_desc = {
-        'print':'prints to the standard output',
+        'print':'prints to the standard output.',
         'input':'takes input from the standard input',
-        'range':'Builtin function',
-        'find':'returns the lowest index where the string is found,',
-        'count':'Builtin function',
-        'findall':'Return a list of all occurances of the string.',
+        'range':'Returns a list of integers from start to end, with step',
+        'find':'Returns the index of the first occurrence of the string',
+        'count':'Returns the number of non-overlapping occurrences of the string',
+        'findall':'Returns a list of all occurrences of the string',
         'string':'typecasts the variable to string',
         'int':'typecasts the variable to int',
         'float':'typecasts the variable to float',
@@ -51,11 +51,23 @@ function activate(context) {
                     label: builtin,
                     kind: vscode.CompletionItemKind.Function,
                     insertText: new vscode.SnippetString(`${builtin}($0)`),
-                    documentation: new vscode.MarkdownString(`${funcs_desc[builtin]}`),
+                    documentation: new vscode.MarkdownString(`${funcs_desc[builtin]}  \n\nCheck [specification](https://github.com/Lambda-Code-Organization/Lambda-Code/blob/main/specification.md#builtin-functions) for more details`),
                     detail:"Builtin function",
                 }];
             }
         });
+    });
+    vscode.languages.registerHoverProvider('lc', {
+        provideHover(document, position) {
+            let word = document.getText(document.getWordRangeAtPosition(position));
+            if (funcs_desc[word] != undefined) {
+            return new vscode.Hover(new vscode.MarkdownString(`${funcs_desc[word]}`));
+            }
+            else {
+                return null;
+            }
+
+        }
     });
 
 }
