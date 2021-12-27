@@ -1,3 +1,8 @@
+Version 0.3.1
+
+1. Fixed bug of builtin functions autocomplete
+2. Removed param word from function and class snippets
+
 Version 0.3.0
 
 1. Show documention of builtin functions on hover

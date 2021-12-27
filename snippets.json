@@ -2,7 +2,7 @@
 	"Function": {
 		"prefix": ["func"],
 		"body": [
-			"func ${1:name}(${2:params})",
+			"func ${1:name}($2)",
 			"    $0",
 			"endfunc"
 		],
@@ -76,7 +76,7 @@
     "class":{
         "prefix":["class"],
         "body": [
-            "class ${1:name}(${2:params})",
+            "class ${1:name}($2)",
             "    $0",
             "endclass"
         ]
@@ -84,7 +84,7 @@
     "class with superclass":{
         "prefix":["class"],
         "body": [
-            "class ${1:name}(${2:params}) inherits ${3:superclass}",
+            "class ${1:name}($2) inherits ${3:superclass}",
             "    $0",
             "endclass\n"
         ]

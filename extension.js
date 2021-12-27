@@ -9,64 +9,58 @@ const vscode = require('vscode');
  * @param {vscode.ExtensionContext} context
  */
 function activate(context) {
-	// Use the console to output diagnostic information (console.log) and errors (console.error)
-	// This line of code will only be executed once when your extension is activated
+    // Use the console to output diagnostic information (console.log) and errors (console.error)
+    // This line of code will only be executed once when your extension is activated
 
-	// The command has been defined in the package.json file
-	// Now provide the implementation of the command with  registerCommand
-	// The commandId parameter must match the command field in package.json
-    const builtins = [
-        'print',
-        'input',
-        'range',
-        'find',
-        'count',
-        'findall',
+    // The command has been defined in the package.json file
+    // Now provide the implementation of the command with  registerCommand
+    // The commandId parameter must match the command field in package.json
+    const builtin_funcs = {
+        'print': 'prints to the standard output.',
+        'input': 'takes input from the standard input',
+        'range': 'Returns a list of integers from start to end, with step',
+        'find': 'Returns the index of the first occurrence of the string',
+        'count': 'Returns the number of non-overlapping occurrences of the string',
+        'findall': 'Returns a list of all occurrences of the string',
+        'string': 'typecasts the variable to string',
+        'int': 'typecasts the variable to int',
+        'float': 'typecasts the variable to float',
+        'bool': 'typecasts the variable to bool',
+        'len': 'returns the length of a list or a string',
+        'exit': 'exits the program with the exit code'
+    }
+    const typecast_funcs = [
         'string',
         'int',
         'float',
-        'bool',
-        'len',
-        'exit'
-    ];
-    const funcs_desc = {
-        'print':'prints to the standard output.',
-        'input':'takes input from the standard input',
-        'range':'Returns a list of integers from start to end, with step',
-        'find':'Returns the index of the first occurrence of the string',
-        'count':'Returns the number of non-overlapping occurrences of the string',
-        'findall':'Returns a list of all occurrences of the string',
-        'string':'typecasts the variable to string',
-        'int':'typecasts the variable to int',
-        'float':'typecasts the variable to float',
-        'bool':'typecasts the variable to bool',
-        'len':'returns the length of a list or a string',
-        'exit':'exits the program with the exit code'
-    }
+        'bool'
+    ]
 
-    builtins.forEach(builtin => {
+    for (const func in builtin_funcs) {
         vscode.languages.registerCompletionItemProvider('lc', {
             provideCompletionItems(document, position) {
                 return [{
-                    label: builtin,
+                    label: func,
                     kind: vscode.CompletionItemKind.Function,
-                    insertText: new vscode.SnippetString(`${builtin}($0)`),
-                    documentation: new vscode.MarkdownString(`${funcs_desc[builtin]}  \n\nCheck [specification](https://github.com/Lambda-Code-Organization/Lambda-Code/blob/main/specification.md#builtin-functions) for more details`),
-                    detail:"Builtin function",
+                    insertText: new vscode.SnippetString(`${func}($0)`),
+                    documentation: new vscode.MarkdownString(`${builtin_funcs[func]}  \n\nCheck [specification](https://github.com/Lambda-Code-Organization/Lambda-Code/blob/main/specification.md#builtin-functions) for more details`),
+                    detail: "Builtin function",
                 }];
             }
         });
-    });
+    }
     vscode.languages.registerHoverProvider('lc', {
         provideHover(document, position) {
-            let word = document.getText(document.getWordRangeAtPosition(position));
-            if (funcs_desc[word] != undefined) {
-            return new vscode.Hover(new vscode.MarkdownString(`${funcs_desc[word]}`));
+            const word = document.getText(document.getWordRangeAtPosition(position));
+            if (typecast_funcs.includes(word)) {
+                return null;
+            }
+            else if (builtin_funcs[word] != undefined) {
+                return new vscode.Hover(new vscode.MarkdownString(`${builtin_funcs[word]}`));
             }
             else {
                 return null;
             }
-
         }
     });
 
@@ -77,6 +71,6 @@ function deactivate() {}
 
 // eslint-disable-next-line no-undef
 module.exports = {
-	activate,
-	deactivate
+    activate,
+    deactivate
 }
