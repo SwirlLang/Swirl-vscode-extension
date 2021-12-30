@@ -27,25 +27,9 @@
         ["'", "'"]
     ],
 	"folding": {
-		"functions": {
-		  "start": "^func \\w*?\\(\\)",
-		  "end": "^endfunc"
-		},
-		"if statement": {
-		  "start": "^if (\\w*)\\(\\)",
-		  "end": "$endif"
-		},
-		"for statement": {
-		  "start": "^for (\\w*)\\(\\)",
-		  "end": "$endfor"
-		},
-		"while statement": {
-		  "start": "^while (\\w*)\\(\\)",
-		  "end": "$endwhile"
-		},
-        "classes": {
-          "start": "^class \\w*?\\(\\).*",
-          "end": "$endclass"
-        },
+        "markers": {
+            "start": "^\\s*#region",
+            "end": "^\\s*#endregion"
+        }
 	  },
 }

@@ -1,6 +1,16 @@
+Version 0.4.0
+
+1. Added autocomplete for keywords
+2. Fixed a bug with builtin functions autocomplete
+3. Removed useless folding regions from the config
+4. Changed cursor placement of import as alias snippet
+5. Double quoted strings now support multiline
+6. Functions with paranthasis now gets colored
+7. Fixed a bug where int function was getting color of data type instead of builtin function
+
 Version 0.3.1
 
-1. Fixed bug of builtin functions autocomplete
+1. Fixed bug of builtin functions autocomplete (partially)
 2. Removed param word from function and class snippets
 
 Version 0.3.0

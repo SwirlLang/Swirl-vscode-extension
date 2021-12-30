@@ -3,17 +3,17 @@
 	"name": "Lambda Code",
 	"patterns": [
         {
-            "include": "#datatype"
-		},
-		{
             "include": "#comments"
 		},
         {
             "include": "#keywords"
         },
 		{
-			"include":"#func&class"
+            "include":"#func&class"
 		},
+        {
+            "include": "#datatype"
+        },
 		{
 			"include":"#strings"
 		}
@@ -32,6 +32,10 @@
                 {
                     "name":"support.function.builtin.lc",
                     "match":"(print|input|range|find|count|findall|string|int|float|bool|len|exit)(?=\\(.*?\\))"
+                },
+                {
+                    "name": "entity.name.function.lc",
+                    "match": "\\w+(?=\\(.*\\))"
                 },
                 {
                     "begin":"\\b(class)\\b\\s(.+)\\((.*?)\\)",
@@ -130,10 +134,16 @@
 		},
 		"strings":{
 			"patterns": [
-				{
-					"name":"string.quoted.lc",
-					"match":"(\".*?\"|\\'.*?\\')"
-				}
+                {
+                    "name":"string.quoted.double",
+                    "begin": "\"",
+                    "end": "\""
+                },
+                {
+                    "name":"string.quoted.single",
+                    "begin": "'",
+                    "end": "'"
+                }
 			]
 		}
 	},

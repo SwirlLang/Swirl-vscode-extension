@@ -29,11 +29,21 @@ function activate(context) {
         'len': 'returns the length of a list or a string',
         'exit': 'exits the program with the exit code'
     }
-    const typecast_funcs = [
-        'string',
-        'int',
-        'float',
-        'bool'
+    const keywords = [
+        "override",
+        "private",
+        "public",
+        "protected",
+        "type",
+        "as",
+        "inherits",
+        "true",
+        "false",
+        "break",
+        "continue",
+        "return",
+        "and",
+        "or"
     ]
 
     for (const func in builtin_funcs) {
@@ -43,19 +53,31 @@ function activate(context) {
                     label: func,
                     kind: vscode.CompletionItemKind.Function,
                     insertText: new vscode.SnippetString(`${func}($0)`),
-                    documentation: new vscode.MarkdownString(`${builtin_funcs[func]}  \n\nCheck [specification](https://github.com/Lambda-Code-Organization/Lambda-Code/blob/main/specification.md#builtin-functions) for more details`),
+                    documentation: new vscode.MarkdownString(
+                        `${builtin_funcs[func]}  \n\nCheck [specification](https://github.com/Lambda-Code-Organization/Lambda-Code/blob/main/specification.md#builtin-functions) for more details`
+                    ),
                     detail: "Builtin function",
                 }];
             }
         });
     }
+    keywords.forEach(keyword => {
+        vscode.languages.registerCompletionItemProvider('lc', {
+            provideCompletionItems(document, position) {
+                return [{
+                    label: keyword,
+                    kind: vscode.CompletionItemKind.Keyword,
+                    detail: "Keyword",
+                    insertText: keyword
+                }
+                ]
+            }
+        });
+    })
     vscode.languages.registerHoverProvider('lc', {
         provideHover(document, position) {
-            const word = document.getText(document.getWordRangeAtPosition(position));
-            if (typecast_funcs.includes(word)) {
-                return null;
-            }
-            else if (builtin_funcs[word] != undefined) {
+            const word = document.getText(document.getWordRangeAtPosition(position, /\b\w+(?=\(.*\))/g));
+            if (builtin_funcs[word] != undefined) {
                 return new vscode.Hover(new vscode.MarkdownString(`${builtin_funcs[word]}`));
             }
             else {
