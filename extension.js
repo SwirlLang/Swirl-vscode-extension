@@ -16,7 +16,7 @@ function activate(context) {
     // Now provide the implementation of the command with  registerCommand
     // The commandId parameter must match the command field in package.json
     const builtin_funcs = {
-        'print': 'prints to the standard output.',
+        'print': 'prints to the standard output',
         'input': 'takes input from the standard input',
         'range': 'Returns a list of integers from start to end, with step',
         'find': 'Returns the index of the first occurrence of the string',
@@ -43,7 +43,12 @@ function activate(context) {
         "continue",
         "return",
         "and",
-        "or"
+        "or",
+        "endfunc",
+        "endclass",
+        "endif",
+        "endwhile",
+        "endfor"
     ]
 
     for (const func in builtin_funcs) {
@@ -76,7 +81,7 @@ function activate(context) {
     })
     vscode.languages.registerHoverProvider('lc', {
         provideHover(document, position) {
-            const word = document.getText(document.getWordRangeAtPosition(position, /\b\w+(?=\(.*\))/g));
+            const word = document.getText(document.getWordRangeAtPosition(position, /\b\w+(?=\(.*\))/));
             if (builtin_funcs[word] != undefined) {
                 return new vscode.Hover(new vscode.MarkdownString(`${builtin_funcs[word]}`));
             }

@@ -1,3 +1,9 @@
+Version 0.4.1
+
+1. Added end keywords to intellisense
+2. Readme change
+
+
 Version 0.4.0
 
 1. Added autocomplete for keywords

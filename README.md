@@ -1,14 +1,15 @@
 # Lambda Code Language support
 
-![logo.png](https://raw.githubusercontent.com/MrinmoyHaloi/LC-vscode-extension/master/icon.png)
+<p align="center">
+<img src="https://raw.githubusercontent.com/Lambda-Code-Organization/LC-vscode-extension/master/icon.png" alt="Logo of Lambda Code">
+</p>
 
-## This extension enables Lambda Code programming language support in vscode.
+### This extension helps programmers code Lamdba Code programs easily in vscode
+### Extension features
+* Intellisense for builtin functions.
+* Snippets for things like functions and classes declaration, while, for loop, if, else statements etc.
+* Syntax highlighting.
 
-#### ( Intellisense coming soon )
+If you want to contribute to the language please     check out the official github [repo](https://github.com/Lambda-Code-Organization/Lambda-Code)
 
-<br>
-Lambda code is a new high level, compiled, statically typed, object-oriented programming language. The language is in development for now.
-
-If you want to contribute to the language please check out the official github [repo](https://github.com/Lambda-Code-Organization/Lambda-Code)
-
-or if you want to contribute to the extension then go to the github [repo](https://github.com/Lambda-Code-Organization/LC-vscode-extension) or click the link at the sidebar
+or if you want to contribute to the extension then go to this github [repo](https://github.com/Lambda-Code-Organization/LC-vscode-extension)
