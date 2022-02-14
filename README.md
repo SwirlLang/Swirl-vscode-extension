@@ -1,7 +1,7 @@
 # Lambda Code VSC extension
 
 <p>
-<img src="https://raw.githubusercontent.com/LC-Lang/LC-vscode-extension/master/icon.png" alt="Logo of Lambda Code">
+<img src="https://raw.githubusercontent.com/LC-Lang/LC-vscode-extension/master/icon.png" alt="Logo of Lambda Code" width=250>
 </p>
 
 ### Lambda Code programming language support for VS Code
