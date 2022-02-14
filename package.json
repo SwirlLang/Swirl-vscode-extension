@@ -3,10 +3,13 @@
     "displayName": "Lambda Code",
     "license": "GPL 3.0",
     "homepage": "https://github.com/LC-Lang/LC-vscode-extension",
-    "repository": "https://github.com/LC-Lang/LC-vscode-extension",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/lc-lang/lc-vscode-extension"
+    },
     "icon": "icon.png",
     "description": "Lambda Code language support for VS Code",
-    "version": "0.5.1",
+    "version": "0.5.2",
     "publisher": "MrinmoyHaloi",
     "engines": {
         "vscode": "^1.59.0"

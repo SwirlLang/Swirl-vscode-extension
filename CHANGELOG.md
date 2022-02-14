@@ -1,3 +1,16 @@
+Version 0.5.2
+
+1. go to definition for functions and keywords
+1. document symbols of functions
+1. document symbols of variables
+1. autocomplete variables declared in the file
+1. autocomplete functions declared in the file
+1. README change
+
+Version 0.5.1
+
+1. README change
+
 Version 0.5.0
 
 1. Moved to typescript

@@ -13,25 +13,25 @@
         "len": "returns the length of a list or a string",
         "exit": "exits the program with the exit code"
     },
-    "keywords": [
-        "override",
-        "private",
-        "public",
-        "protected",
-        "type",
-        "as",
-        "inherits",
-        "true",
-        "false",
-        "break",
-        "continue",
-        "return",
-        "and",
-        "or",
-        "endfunc",
-        "endclass",
-        "endif",
-        "endwhile",
-        "endfor"
-    ]
+    "keywords": {
+        "override":"",
+        "private":"",
+        "public":"",
+        "protected":"",
+        "type":"",
+        "as":"",
+        "inherits":"",
+        "true":"",
+        "false":"",
+        "break":"",
+        "continue":"",
+        "return":"",
+        "and":"",
+        "or":"",
+        "endfunc":"",
+        "endclass":"",
+        "endif":"",
+        "endwhile":"",
+        "endfor":""
+    }
 }
