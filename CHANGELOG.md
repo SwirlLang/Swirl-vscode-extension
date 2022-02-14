@@ -1,3 +1,11 @@
+Version 0.5.0
+
+1. Moved to typescript
+1. Fixed broken links
+1. moved keywords and functions to there own json file
+1. Updated logo
+1. Updated to new syntax of function, conditionals, loops, etc.
+
 Version 0.4.1
 
 1. Added end keywords to intellisense

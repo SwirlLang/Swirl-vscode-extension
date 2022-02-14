@@ -1,64 +1,64 @@
 {
 	"Function": {
-		"prefix": ["func"],
+		"prefix": ["function"],
 		"body": [
-			"func ${1:name}($2)",
+			"func ${1:name}($2){",
 			"    $0",
-			"endfunc"
+			"}"
 		],
-		"description": "snippet for function"
+		"description": "function snippet"
 	},
 
 	"if statement": {
 		"prefix": "if",
 		"body": [
-			"if (${1:condition})",
+			"if ${1:condition}{",
 			"    $0",
-			"endif"
+			"}"
 		],
-		"description": "snippet for if statement"
+		"description": "if statement"
 	},
 	"if elseif else statement ": {
 		"prefix": "if elseif else",
 		"body": [
-			"if (${1:condition})",
+			"if ${1:condition}{",
 			"    $2",
-
-			"elseif (${3:condition})",
+            "}",
+			"elseif ${3:condition}{",
 			"    $4",
-
-			"else",
+            "}",
+			"else {",
 			"    $0",
-			"endif\n"
+			"}\n"
 		],
-		"description": "snippet for if eleif else statement"
+		"description": "if, elseif, else statement"
 	},
 	"if else statement": {
 		"prefix": "if else",
 		"body": [
-			"if (${1:condition})",
+			"if ${1:condition}{",
 			"    $2",
-
-			"else",
+            "}",
+			"else {",
 			"    $0",
-			"endif\n"
+			"}\n"
 		],
-		"description": "snippet for if else statement"
+		"description": "if, else statement"
 	},
 	"for loop":{
-		"prefix":["for","for loop"],
+		"prefix":["for"],
 		"body": [
-			"for ${1:i in a}",
+			"for ${1:condition}{",
 			"    $0",
-			"endfor"
+			"}"
 		]
 	},
 	"while loop":{
-		"prefix":["while","while loop"],
+		"prefix":["while"],
 		"body": [
-			"while (${1:condition})",
+			"while ${1:condition}{",
 			"    $0",
-			"endwhile"
+			"}"
 		]
 	},
 	"import statement":{
@@ -76,17 +76,17 @@
     "class":{
         "prefix":["class"],
         "body": [
-            "class ${1:name}($2)",
+            "class ${1:name}($2){",
             "    $0",
-            "endclass"
+            "}"
         ]
     },
     "class with superclass":{
         "prefix":["class"],
         "body": [
-            "class ${1:name}($2) inherits ${3:superclass}",
+            "class ${1:name}($2) inherits ${3:superclass}{",
             "    $0",
-            "endclass\n"
+            "}\n"
         ]
     }
 }
