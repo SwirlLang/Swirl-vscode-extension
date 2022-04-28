@@ -32,6 +32,10 @@
         "endclass":"",
         "endif":"",
         "endwhile":"",
-        "endfor":""
+        "endfor":"",
+        "int":"",
+        "string":"",
+        "float":"",
+        "bool":""
     }
 }

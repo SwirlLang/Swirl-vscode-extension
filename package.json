@@ -9,7 +9,7 @@
     },
     "icon": "icon.png",
     "description": "Lambda Code language support for VS Code",
-    "version": "0.5.2",
+    "version": "0.6.0",
     "publisher": "MrinmoyHaloi",
     "engines": {
         "vscode": "^1.59.0"
@@ -17,16 +17,17 @@
     "activationEvents": [
         "onLanguage:lc"
     ],
-    "main": "./out/extension.js",
+    "main": "./client/out/extension",
     "categories": [
         "Programming Languages",
         "Snippets"
     ],
     "scripts": {
-		"vscode:prepublish": "npm run compile",
-		"compile": "tsc -p ./",
-		"watch": "tsc -watch -p ./"
-	},
+        "vscode:prepublish": "npm run compile",
+        "compile": "tsc -b",
+        "watch": "tsc -b -w",
+        "postinstall": "cd client && npm install && cd ../server && npm install && cd .."
+    },
     "contributes": {
         "languages": [
             {
@@ -55,11 +56,28 @@
                 "language": "lc",
                 "path": "./snippets.json"
             }
-        ]
+        ],
+        "configuration": {
+            "title": "Lambda Code",
+            "properties": {
+                "LCLangServer.trace.server": {
+                    "scope": "window",
+                    "type": "string",
+                    "enum": [
+                        "off",
+                        "messages",
+                        "verbose"
+                    ],
+                    "default": "off",
+                    "description": "Traces the communication between VS Code and the language server."
+                }
+            }
+        }
     },
     "devDependencies": {
         "@types/node": "^17.0.17",
         "@types/vscode": "^1.32.0",
-        "typescript": "^4.5.5"
+        "esbuild": "^0.14.38",
+        "typescript": "^4.6.3"
     }
 }

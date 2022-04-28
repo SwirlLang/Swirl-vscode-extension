@@ -1,0 +1,14 @@
+{
+	"name": "lc-ext-client",
+	"description": "VSCode part of a language server",
+	"license": "GPL 3.0",
+	"engines": {
+		"vscode": "^1.59.0"
+	},
+	"dependencies": {
+		"vscode-languageclient": "^7.0.0"
+	},
+	"devDependencies": {
+		"@types/vscode": "^1.63.0"
+	}
+}

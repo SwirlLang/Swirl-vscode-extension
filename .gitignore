@@ -1,2 +1,7 @@
 node_modules
 *.vsix
+*.log
+.vscode/settings.json
+*.code-workspace
+*.js
+*.js.map
