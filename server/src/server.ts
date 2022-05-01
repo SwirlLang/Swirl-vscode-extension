@@ -15,8 +15,6 @@ import {
     MarkupContent,
     DocumentSymbol,
     SymbolKind,
-    Location,
-    LocationLink,
 } from "vscode-languageserver/node";
 
 import { TextDocument } from "vscode-languageserver-textdocument";
@@ -123,7 +121,7 @@ async function validateTextDocument(textDocument: TextDocument): Promise<void> {
                 end: textDocument.positionAt(m2.index + m2[0].length),
             },
             message: `no package name provided`,
-            source: "Lambda Code ext",
+            source: "Swirl ext",
         };
         diagnostics.push(diagnostic);
     }
@@ -182,7 +180,7 @@ connection.onCompletion(
                 detail: `Function`,
                 documentation: {
                     kind: MarkupKind.Markdown,
-                    value: `\`\`\`lc\nfunc ${funcs_match[1]}${funcs_match[2]}{\n}\n\`\`\``,
+                    value: `\`\`\`swirl\nfunc ${funcs_match[1]}${funcs_match[2]}{\n}\n\`\`\``,
                 },
                 insertTextFormat: 2,
                 insertText: `${funcs_match[1]}($0)`,
@@ -198,7 +196,7 @@ connection.onCompletion(
                 detail: `Variable`,
                 documentation: {
                     kind: MarkupKind.Markdown,
-                    value: `\`\`\`lc\n${match[0]}\n\`\`\``,
+                    value: `\`\`\`swirl\n${match[0]}\n\`\`\``,
                 },
                 insertText: match[2],
                 sortText: "1",
@@ -281,7 +279,7 @@ connection.onDocumentSymbol((params) => {
         });
     }
     // document symbols for functions
-    const func_regex = /\bfunc\s+(\w+)\s*\(\s*\){.*}/gs;
+    const func_regex = /\bfunc\s+(\w+)\s*\(\s*\)\s*{.*}/gs;
     let func_match: RegExpExecArray | null;
     while ((func_match = func_regex.exec(document.getText())) != null) {
         symbols.push({

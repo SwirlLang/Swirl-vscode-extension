@@ -37,10 +37,10 @@ function activate(context: vscode.ExtensionContext) {
     const clientOptions: LanguageClientOptions = {
         // Register the server for plain text documents
         documentSelector: [
-            { scheme: "file", language: "lc" },
-            { scheme: "untitled", language: "lc" },
+            { scheme: "file", language: "swirl" },
+            { scheme: "untitled", language: "swirl" },
         ],
-        outputChannelName: "Lambda Code",
+        outputChannelName: "Swirl",
         synchronize: {
             // Notify the server about file changes to '.clientrc files contained in the workspace
             fileEvents:
@@ -50,8 +50,8 @@ function activate(context: vscode.ExtensionContext) {
 
     // Create the language client and start the client.
     client = new LanguageClient(
-        "LCLangServer",
-        "LC Lang Server",
+        "SwirlLangServer",
+        "Swirl Lang Server",
         serverOptions,
         clientOptions
     );

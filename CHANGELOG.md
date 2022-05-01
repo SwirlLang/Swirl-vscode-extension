@@ -1,3 +1,7 @@
+**Version 0.6.1**
+
+1. Lambda Code is now renamed to Swirl. Extension has been updated to reflect the new name
+
 **Version 0.6.0**
 
 1. Implemented language server

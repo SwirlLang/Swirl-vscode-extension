@@ -1,6 +1,6 @@
 {
     "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
-    "name": "Lambda Code",
+    "name": "Swirl",
     "patterns": [
         {
             "include": "#comments"
@@ -22,19 +22,19 @@
         "func&class": {
             "patterns": [
                 {
-                    "name": "entity.name.function.lc",
+                    "name": "entity.name.function.swirl",
                     "match": "(?<=func) (\\w+)(?=\\((.*)?\\))"
                 },
                 {
-                    "name": "storage.type.function.lc",
+                    "name": "storage.type.function.swirl",
                     "match": "\\bfunc\\b"
                 },
                 {
-                    "name": "support.function.builtin.lc",
+                    "name": "support.function.builtin.swirl",
                     "match": "(print|input|range|find|count|findall|string|int|float|bool|len|exit)(?=\\(.*?\\))"
                 },
                 {
-                    "name": "entity.name.function.lc",
+                    "name": "entity.name.function.swirl",
                     "match": "\\w+(?=\\(.*\\))"
                 },
                 {
@@ -46,10 +46,10 @@
                     ],
                     "beginCaptures": {
                         "1": {
-                            "name": "storage.type.class.lc"
+                            "name": "storage.type.class.swirl"
                         },
                         "2": {
-                            "name": "entity.name.class.lc"
+                            "name": "entity.name.class.swirl"
                         },
                         "3": {
                             "patterns": [
@@ -78,47 +78,47 @@
         "keywords": {
             "patterns": [
                 {
-                    "name": "keyword.operator.arithmetic.lc",
+                    "name": "keyword.operator.arithmetic.swirl",
                     "match": "(\\+|\\-|\\*|\\/|\\%)(?!=)"
                 },
                 {
-                    "name": "keyword.operator.bitwise.lc",
+                    "name": "keyword.operator.bitwise.swirl",
                     "match": "(&|\\||\\^|\\~|<<|>>)(?!=)"
                 },
                 {
-                    "name": "keyword.operator.assignment.lc",
+                    "name": "keyword.operator.assignment.swirl",
                     "match": "(=|\\+\\+|--|\\+=|-=|\\*=|\/=)(?!=)"
                 },
                 {
-                    "name": "keyword.operator.comparison.lc",
+                    "name": "keyword.operator.comparison.swirl",
                     "match": "(==|\\!=|\\<=|\\>=|\\<|\\>)(?!=)"
                 },
                 {
-                    "name": "keyword.control.lc",
+                    "name": "keyword.control.swirl",
                     "match": "\\b(for|while|in|override|private|public|protected|type|as)\\b"
                 },
                 {
-                    "name": "constant.language.lc",
+                    "name": "constant.language.swirl",
                     "match": "\\b(true|false)\\b"
                 },
                 {
-                    "name": "keyword.control.import.lc",
+                    "name": "keyword.control.import.swirl",
                     "match": "\\bimport\\s(?=.*)"
                 },
                 {
-                    "name": "keyword.class.lc",
+                    "name": "keyword.class.swirl",
                     "match": "\\binherits\\b"
                 },
                 {
-                    "name": "keyword.control.conditional.lc",
+                    "name": "keyword.control.conditional.swirl",
                     "match": "\\b(if|else)\\b"
                 },
                 {
-                    "name": "keyword.control.flow.lc",
+                    "name": "keyword.control.flow.swirl",
                     "match": "\\b(break|continue|return)\\b"
                 },
                 {
-                    "name": "keyword.control.operator.lc",
+                    "name": "keyword.control.operator.swirl",
                     "match": "\\b(and|or)\\b"
                 }
             ]
@@ -126,15 +126,15 @@
         "datatype": {
             "patterns": [
                 {
-                    "name": "entity.name.type.lc",
+                    "name": "entity.name.type.swirl",
                     "match": "\\b(int|string|float|bool|list|void)\\b"
                 },
                 {
-                    "name": "storage.type.lc",
+                    "name": "storage.type.swirl",
                     "match": "\\bconst\\b"
                 },
                 {
-                    "name": "constant.numeric.lc",
+                    "name": "constant.numeric.swirl",
                     "match": "\\b\\d+\\b"
                 }
             ]
@@ -154,5 +154,5 @@
             ]
         }
     },
-    "scopeName": "source.lc"
+    "scopeName": "source.swirl"
 }

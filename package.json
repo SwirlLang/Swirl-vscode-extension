@@ -1,21 +1,21 @@
 {
-    "name": "lc-lang-support",
-    "displayName": "Lambda Code",
+    "name": "swirl-lang-support",
+    "displayName": "Swirl",
     "license": "GPL 3.0",
-    "homepage": "https://github.com/LC-Lang/LC-vscode-extension",
+    "homepage": "https://github.com/SwirlLang/Swirl-vscode-extension",
     "repository": {
         "type": "git",
-        "url": "https://github.com/lc-lang/lc-vscode-extension"
+        "url": "https://github.com/SwirlLang/Swirl-vscode-extension"
     },
     "icon": "icon.png",
-    "description": "Lambda Code language support for VS Code",
-    "version": "0.6.0",
+    "description": "Swirl language support for VS Code",
+    "version": "0.6.1",
     "publisher": "MrinmoyHaloi",
     "engines": {
         "vscode": "^1.59.0"
     },
     "activationEvents": [
-        "onLanguage:lc"
+        "onLanguage:swirl"
     ],
     "main": "./client/out/extension",
     "categories": [
@@ -31,36 +31,34 @@
     "contributes": {
         "languages": [
             {
-                "id": "lc",
+                "id": "swirl",
                 "aliases": [
-                    "Lambda Code",
-                    "lc",
-                    "lambdacode",
-                    "LC"
+                    "Swirl",
+                    "swirl"
                 ],
                 "extensions": [
-                    ".lc"
+                    ".sw"
                 ],
                 "configuration": "./language-configuration.json"
             }
         ],
         "grammars": [
             {
-                "language": "lc",
-                "scopeName": "source.lc",
-                "path": "./syntaxes/lc.tmLanguage.json"
+                "language": "swirl",
+                "scopeName": "source.swirl",
+                "path": "./syntaxes/swirl.tmLanguage.json"
             }
         ],
         "snippets": [
             {
-                "language": "lc",
+                "language": "swirl",
                 "path": "./snippets.json"
             }
         ],
         "configuration": {
-            "title": "Lambda Code",
+            "title": "Swirl",
             "properties": {
-                "LCLangServer.trace.server": {
+                "SwirlLangServer.trace.server": {
                     "scope": "window",
                     "type": "string",
                     "enum": [
@@ -77,7 +75,6 @@
     "devDependencies": {
         "@types/node": "^17.0.17",
         "@types/vscode": "^1.32.0",
-        "esbuild": "^0.14.38",
         "typescript": "^4.6.3"
     }
 }
