@@ -1,3 +1,12 @@
+**Version 0.7.0**
+
+1. Fix regex for matching functions for autocompletion and document symbols
+1. Update keywords
+1. Update builtin functions descriptions
+1. Update else if to elif
+1. Update snippets
+1. Function parameters are now highlighted
+
 **Version 0.6.1**
 
 1. Lambda Code is now renamed to Swirl. Extension has been updated to reflect the new name
@@ -46,7 +55,7 @@
 3. Removed useless folding regions from the config
 4. Changed cursor placement of import as alias snippet
 5. Double quoted strings now support multiline
-6. Functions with paranthasis now gets colored
+6. Functions with parenthesis now gets colored
 7. Fixed a bug where int function was getting color of data type instead of builtin function
 
 **Version 0.3.1**
@@ -56,9 +65,9 @@
 
 **Version 0.3.0**
 
-1. Show documention of builtin functions on hover
+1. Show documentation of builtin functions on hover
 2. Removed variables snippets because its useless
-3. Fixed syntax highlighting not working between paranthisis of classes
+3. Fixed syntax highlighting not working between parenthesis of classes
 4. Added `as` keyword
 5. Removed triple quoted strings
 
@@ -85,4 +94,4 @@
 1. reworked on classes syntax
 2. highlighted in, inherits keywords. Also highlighted class names
 3. removed arrow functions syntax
-4. added snippets for classe
+4. added snippets for classes

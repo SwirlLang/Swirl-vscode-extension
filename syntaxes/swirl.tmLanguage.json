@@ -23,11 +23,19 @@
             "patterns": [
                 {
                     "name": "entity.name.function.swirl",
-                    "match": "(?<=func) (\\w+)(?=\\((.*)?\\))"
+                    "match": "(?<=func )(\\w+)(?=\\((.*)?\\))"
+                },
+                {
+                    "name": "variable.parameter",
+                    "match": "(?<=func (\\w+).*\\(.*(int|string) )\\w+(?=.*\\).*)"
                 },
                 {
                     "name": "storage.type.function.swirl",
                     "match": "\\bfunc\\b"
+                },
+                {
+                    "name": "storage.type.class.swirl",
+                    "match": "\\bclass\\b"
                 },
                 {
                     "name": "support.function.builtin.swirl",
@@ -38,7 +46,7 @@
                     "match": "\\w+(?=\\(.*\\))"
                 },
                 {
-                    "begin": "\\b(class)\\b\\s(.+)\\((.*?)\\)",
+                    "begin": "\\bclass\\b\\s(.+)\\((.*?)\\)",
                     "patterns": [
                         {
                             "include": "$self"
@@ -46,12 +54,9 @@
                     ],
                     "beginCaptures": {
                         "1": {
-                            "name": "storage.type.class.swirl"
-                        },
-                        "2": {
                             "name": "entity.name.class.swirl"
                         },
-                        "3": {
+                        "2": {
                             "patterns": [
                                 {
                                     "include": "$self"
@@ -95,7 +100,7 @@
                 },
                 {
                     "name": "keyword.control.swirl",
-                    "match": "\\b(for|while|in|override|private|public|protected|type|as)\\b"
+                    "match": "\\b(for|while|in|override|private|public|protected|is|static)\\b"
                 },
                 {
                     "name": "constant.language.swirl",
@@ -111,7 +116,7 @@
                 },
                 {
                     "name": "keyword.control.conditional.swirl",
-                    "match": "\\b(if|else)\\b"
+                    "match": "\\b(if|elif|else)\\b"
                 },
                 {
                     "name": "keyword.control.flow.swirl",
@@ -130,8 +135,12 @@
                     "match": "\\b(int|string|float|bool|list|void)\\b"
                 },
                 {
-                    "name": "storage.type.swirl",
+                    "name": "storage.type.const.swirl",
                     "match": "\\bconst\\b"
+                },
+                {
+                    "name": "storage.type.var.swirl",
+                    "match": "\\bvar\\b"
                 },
                 {
                     "name": "constant.numeric.swirl",

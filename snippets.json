@@ -1,10 +1,8 @@
 {
     "Function": {
-        "prefix": [
-            "function"
-        ],
+        "prefix": "func",
         "body": [
-            "func ${1:name}($2){",
+            "func ${1:name}($2) {",
             "    $0",
             "}"
         ],
@@ -13,31 +11,25 @@
     "if statement": {
         "prefix": "if",
         "body": [
-            "if ${1:condition}{",
+            "if ${1:condition} {",
             "    $0",
             "}"
         ],
         "description": "if statement"
     },
-    "if elseif else statement ": {
-        "prefix": "if else if else",
+    "elif statement": {
+        "prefix": "elif",
         "body": [
-            "if ${1:condition}{",
-            "    $2",
-            "}",
-            "else if ${3:condition}{",
-            "    $4",
-            "}",
-            "else {",
+            "elif ${1:condition} {",
             "    $0",
-            "}\n"
+            "}"
         ],
-        "description": "if, elseif, else statement"
+        "description": "if statement"
     },
     "if else statement": {
         "prefix": "if else",
         "body": [
-            "if ${1:condition}{",
+            "if ${1:condition} {",
             "    $2",
             "}",
             "else {",
@@ -47,59 +39,33 @@
         "description": "if, else statement"
     },
     "for loop": {
-        "prefix": [
-            "for"
-        ],
+        "prefix": "for",
         "body": [
-            "for ${1:condition}{",
+            "for ${1:condition} {",
             "    $0",
             "}"
         ]
     },
     "while loop": {
-        "prefix": [
-            "while"
-        ],
+        "prefix": "while",
         "body": [
-            "while ${1:condition}{",
+            "while ${1:condition} {",
             "    $0",
             "}"
         ]
     },
     "import statement": {
-        "prefix": [
-            "import"
-        ],
+        "prefix": "import",
         "body": [
             "import ${0:package}"
         ]
     },
-    "import statement with alias": {
-        "prefix": [
-            "import"
-        ],
-        "body": [
-            "import ${1:package} as ${0:alias}"
-        ]
-    },
     "class": {
-        "prefix": [
-            "class"
-        ],
+        "prefix": "class",
         "body": [
             "class ${1:name}($2){",
             "    $0",
             "}"
-        ]
-    },
-    "class with superclass": {
-        "prefix": [
-            "class"
-        ],
-        "body": [
-            "class ${1:name}($2) inherits ${3:parentclass}{",
-            "    $0",
-            "}\n"
         ]
     }
 }

@@ -107,21 +107,21 @@ documents.onDidChangeContent((change) => {
 });
 
 async function validateTextDocument(textDocument: TextDocument): Promise<void> {
-    // The validator creates diagnostics for all uppercase words length 2 and more
+    // The validator creates diagnostics for all import statements with a unknown package name
     const text = textDocument.getText();
     const diagnostics: Diagnostic[] = [];
 
-    const pattern2 = /\bimport(?=(\s\n)|\n)\b/g;
-    let m2: RegExpExecArray | null;
-    while ((m2 = pattern2.exec(text))) {
+    const import_pattern = /\bimport(?! \w)/g;
+    let m1: RegExpExecArray | null;
+    while ((m1 = import_pattern.exec(text))) {
         const diagnostic: Diagnostic = {
             severity: DiagnosticSeverity.Error,
             range: {
-                start: textDocument.positionAt(m2.index),
-                end: textDocument.positionAt(m2.index + m2[0].length),
+                start: textDocument.positionAt(m1.index),
+                end: textDocument.positionAt(m1.index + m1[0].length),
             },
-            message: `no package name provided`,
-            source: "Swirl ext",
+            message: `Unknown package`,
+            source: "Swirl",
         };
         diagnostics.push(diagnostic);
     }
@@ -171,7 +171,7 @@ connection.onCompletion(
         const document = documents.get(params.textDocument.uri)!;
         const items_list: CompletionItem[] = [];
         // autocomplete functions declared in the file
-        const func_regex = /\bfunc\s+(\w+)\s*(\(.*\)){.*}/gs;
+        const func_regex = /\bfunc\s+(\w+)\s*(\(.*\))\s*{.*}/gs;
         let funcs_match: RegExpExecArray | null;
         while ((funcs_match = func_regex.exec(document.getText()!)) != null) {
             items_list.push({
@@ -219,7 +219,6 @@ connection.onCompletion(
                     kind: CompletionItemKind.Keyword,
                     detail: "Keyword",
                     insertText: keyword,
-                    sortText: "2",
                 });
             } else {
                 items_list.push({
@@ -279,7 +278,7 @@ connection.onDocumentSymbol((params) => {
         });
     }
     // document symbols for functions
-    const func_regex = /\bfunc\s+(\w+)\s*\(\s*\)\s*{.*}/gs;
+    const func_regex = /\bfunc\s+(\w+)\s*\(.*\)\s*{.*}/gs;
     let func_match: RegExpExecArray | null;
     while ((func_match = func_regex.exec(document.getText())) != null) {
         symbols.push({
@@ -323,6 +322,7 @@ connection.onDefinition((params) => {
     }
     return null;
 });
+
 // Make the text document manager listen on the connection
 // for open, change and close text document events
 documents.listen(connection);

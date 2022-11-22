@@ -8,8 +8,8 @@
         "url": "https://github.com/SwirlLang/Swirl-vscode-extension"
     },
     "icon": "icon.png",
-    "description": "Swirl language support for VS Code",
-    "version": "0.6.1",
+    "description": "Swirl extension for VS Code",
+    "version": "0.7.0",
     "publisher": "MrinmoyHaloi",
     "engines": {
         "vscode": "^1.59.0"

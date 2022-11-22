@@ -6,12 +6,12 @@
 
 ### Swirl VS Code extension and language server
 
-## features
+## Features
 
-1. Intellisense for builtin functions and keywords and functions and variables declared in a file.
-1. Snippets support.
-1. Document symbols for variable and functions in a file.
-1. Syntax highlighting.
+1. Intellisense (partial)
+1. Snippets
+1. Document symbols
+1. Syntax highlighting
 
 If you want to contribute to the language please check out the official github [repo](https://github.com/SwirlLang/Swirl)
 
