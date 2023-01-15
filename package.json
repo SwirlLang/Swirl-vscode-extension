@@ -9,7 +9,7 @@
     },
     "icon": "icon.png",
     "description": "Swirl extension for VS Code",
-    "version": "0.7.0",
+    "version": "0.7.1",
     "publisher": "MrinmoyHaloi",
     "engines": {
         "vscode": "^1.59.0"
@@ -37,7 +37,8 @@
                     "swirl"
                 ],
                 "extensions": [
-                    ".sw"
+                    ".sw",
+                    ".swirl"
                 ],
                 "configuration": "./language-configuration.json"
             }

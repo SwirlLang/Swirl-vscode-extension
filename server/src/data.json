@@ -33,6 +33,9 @@
         "is": "",
         "in": "",
         "static": "",
-        "var": ""
+        "var": "",
+        "import": "",
+        "func": "",
+        "class": ""
     }
 }

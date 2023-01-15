@@ -1,3 +1,11 @@
+**Version 0.7.1**
+1. Add .swirl as a recognized extension
+1. Fix class name color
+1. Add define directive
+1. Add importc keyword
+1. Don't autocomplete after the keywords func, class, import
+1. Variables are not picked from comments for autocomplete and document symbols
+
 **Version 0.7.0**
 
 1. Fix regex for matching functions for autocompletion and document symbols

@@ -23,11 +23,15 @@
             "patterns": [
                 {
                     "name": "entity.name.function.swirl",
-                    "match": "(?<=func )(\\w+)(?=\\((.*)?\\))"
+                    "match": "(?<=func )(\\w+)(?=(.*)?\\))"
                 },
                 {
                     "name": "variable.parameter",
-                    "match": "(?<=func (\\w+).*\\(.*(int|string) )\\w+(?=.*\\).*)"
+                    "match": "(?<=func (\\w+).*(\\w+) )\\w+(?=.*\\))"
+                },
+                {
+                    "name": "entity.name.type.swirl",
+                    "match": "(?<=func (\\w+).*)\\w+(?= \\w+.*\\))"
                 },
                 {
                     "name": "storage.type.function.swirl",
@@ -38,32 +42,20 @@
                     "match": "\\bclass\\b"
                 },
                 {
+                    "name": "entity.name.class.swirl",
+                    "match": "(?<=class )(\\w+)(?=\\((.*)?\\))"
+                },
+                {
+                    "name": "variable.parameter",
+                    "match": "(?<=class (\\w+).*\\(.*(int|string) )\\w+(?=.*\\))"
+                },
+                {
                     "name": "support.function.builtin.swirl",
                     "match": "(print|input|range|find|count|findall|string|int|float|bool|len|exit)(?=\\(.*?\\))"
                 },
                 {
                     "name": "entity.name.function.swirl",
                     "match": "\\w+(?=\\(.*\\))"
-                },
-                {
-                    "begin": "\\bclass\\b\\s(.+)\\((.*?)\\)",
-                    "patterns": [
-                        {
-                            "include": "$self"
-                        }
-                    ],
-                    "beginCaptures": {
-                        "1": {
-                            "name": "entity.name.class.swirl"
-                        },
-                        "2": {
-                            "patterns": [
-                                {
-                                    "include": "$self"
-                                }
-                            ]
-                        }
-                    }
                 }
             ]
         },
@@ -87,6 +79,10 @@
                     "match": "(\\+|\\-|\\*|\\/|\\%)(?!=)"
                 },
                 {
+                    "name": "keyword.operator.logical.swirl",
+                    "match": "(\\&\\&|\\|\\||!)(?!=)"
+                },
+                {
                     "name": "keyword.operator.bitwise.swirl",
                     "match": "(&|\\||\\^|\\~|<<|>>)(?!=)"
                 },
@@ -108,11 +104,11 @@
                 },
                 {
                     "name": "keyword.control.import.swirl",
-                    "match": "\\bimport\\s(?=.*)"
+                    "match": "\\b(import|importc)\\s(?=.*)"
                 },
                 {
-                    "name": "keyword.class.swirl",
-                    "match": "\\binherits\\b"
+                    "name": "keyword.control.define.swirl",
+                    "match": "#define\\s(?=.*)"
                 },
                 {
                     "name": "keyword.control.conditional.swirl",

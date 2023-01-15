@@ -187,7 +187,7 @@ connection.onCompletion(
             });
         }
         // autocomplete variables declared in the file
-        const variable_regex = /\b(\w+)\s(\w+)\s=\s.*/g;
+        const variable_regex = /\b(?<!\/.*)(\w+)\s(\w+)\s=\s.*/g;
         let match: RegExpExecArray | null;
         while ((match = variable_regex.exec(document.getText()!)) != null) {
             items_list.push({
@@ -229,6 +229,19 @@ connection.onCompletion(
                 });
             }
         }
+
+        // don't autocomplete in comments and after func, class, import keywords
+        const line = document.getText({
+            start: { line: params.position.line, character: 0 },
+            end: { line: params.position.line, character: params.position.character },
+        });
+        if (line.match(/\/\/.*/g) || line.match(/(?<=\/\/\/).*(?=\/\/\/)/gs)) {
+            return [];
+        }
+        if (line.match(/\bfunc(?!\s\w+.*\).*{)/g) || line.match(/\bclass(?!\s\w+.*\).*{)/g) || line.match(/\bimport\b/g)) {
+            return [];
+        }
+
         return items_list;
     }
 );
@@ -259,7 +272,7 @@ connection.onDocumentSymbol((params) => {
     // document symbols for variables
     const document = documents.get(params.textDocument.uri)!;
     const symbols: DocumentSymbol[] = [];
-    const var_regex = /\b(\w+)\s(\w+)\s=\s.*/g;
+    const var_regex = /\b(?<!\/.*)(\w+)\s(\w+)\s=\s.*/g;
     let var_match: RegExpExecArray | null;
 
     while ((var_match = var_regex.exec(document.getText())) != null) {
