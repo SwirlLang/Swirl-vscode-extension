@@ -1,8 +1,8 @@
 {
     "Function": {
-        "prefix": "func",
+        "prefix": "fn",
         "body": [
-            "func ${1:name}($2) {",
+            "fn ${1:name}($2) {",
             "    $0",
             "}"
         ],

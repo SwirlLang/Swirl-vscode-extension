@@ -23,19 +23,19 @@
             "patterns": [
                 {
                     "name": "entity.name.function.swirl",
-                    "match": "(?<=func )(\\w+)(?=(.*)?\\))"
+                    "match": "(?<=fn )(\\w+)(?=(.*)?\\))"
                 },
                 {
                     "name": "variable.parameter",
-                    "match": "(?<=func (\\w+).*(\\w+) )\\w+(?=.*\\))"
+                    "match": "(?<=fn (\\w+).*(\\w+) )\\w+(?=.*\\))"
                 },
                 {
                     "name": "entity.name.type.swirl",
-                    "match": "(?<=func (\\w+).*)\\w+(?= \\w+.*\\))"
+                    "match": "(?<=fn (\\w+).*)\\w+(?= \\w+.*\\))"
                 },
                 {
                     "name": "storage.type.function.swirl",
-                    "match": "\\bfunc\\b"
+                    "match": "\\bfn\\b"
                 },
                 {
                     "name": "storage.type.class.swirl",
@@ -96,7 +96,7 @@
                 },
                 {
                     "name": "keyword.control.swirl",
-                    "match": "\\b(for|while|in|override|private|public|protected|is|static)\\b"
+                    "match": "\\b(for|while|override|private|public|protected|static)\\b"
                 },
                 {
                     "name": "constant.language.swirl",
@@ -105,10 +105,6 @@
                 {
                     "name": "keyword.control.import.swirl",
                     "match": "\\b(import|importc)\\s(?=.*)"
-                },
-                {
-                    "name": "keyword.control.define.swirl",
-                    "match": "#define\\s(?=.*)"
                 },
                 {
                     "name": "keyword.control.conditional.swirl",
@@ -128,7 +124,7 @@
             "patterns": [
                 {
                     "name": "entity.name.type.swirl",
-                    "match": "\\b(int|string|float|bool|list|void)\\b"
+                    "match": "\\b(i8|i16|i32|i64|i128|u8|u16|u32|u64|u128|bool|f32|f64)\\b"
                 },
                 {
                     "name": "storage.type.const.swirl",

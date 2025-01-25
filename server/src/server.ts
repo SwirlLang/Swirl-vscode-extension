@@ -171,7 +171,7 @@ connection.onCompletion(
         const document = documents.get(params.textDocument.uri)!;
         const items_list: CompletionItem[] = [];
         // autocomplete functions declared in the file
-        const func_regex = /\bfunc\s+(\w+)\s*(\(.*\))\s*{.*}/gs;
+        const func_regex = /\bfn\s+(\w+)\s*(\(.*\))\s*{.*}/gs;
         let funcs_match: RegExpExecArray | null;
         while ((funcs_match = func_regex.exec(document.getText()!)) != null) {
             items_list.push({
@@ -180,7 +180,7 @@ connection.onCompletion(
                 detail: `Function`,
                 documentation: {
                     kind: MarkupKind.Markdown,
-                    value: `\`\`\`swirl\nfunc ${funcs_match[1]}${funcs_match[2]}{\n}\n\`\`\``,
+                    value: `\`\`\`swirl\nfn ${funcs_match[1]}${funcs_match[2]}{\n}\n\`\`\``,
                 },
                 insertTextFormat: 2,
                 insertText: `${funcs_match[1]}($0)`,
@@ -211,7 +211,7 @@ connection.onCompletion(
                 insertText: `${func}($0)`,
             });
         }
-        const datatypes = ["int", "string", "float", "bool"];
+        const datatypes = ["i8","i16","i32","i64","i128","u8","u16","u32","u64","u128","bool","f32","f64"];
         for (const keyword in keywords) {
             if (keyword in datatypes) {
                 items_list.push({
@@ -238,7 +238,7 @@ connection.onCompletion(
         if (line.match(/\/\/.*/g) || line.match(/(?<=\/\/\/).*(?=\/\/\/)/gs)) {
             return [];
         }
-        if (line.match(/\bfunc(?!\s\w+.*\).*{)/g) || line.match(/\bclass(?!\s\w+.*\).*{)/g) || line.match(/\bimport\b/g)) {
+        if (line.match(/\bfn(?!\s\w+.*\).*{)/g) || line.match(/\bclass(?!\s\w+.*\).*{)/g) || line.match(/\bimport\b/g)) {
             return [];
         }
 
