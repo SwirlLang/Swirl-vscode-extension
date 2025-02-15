@@ -1,3 +1,9 @@
+**Version 0.7.3**
+1. Update logo
+
+**Version 0.7.2**
+1. Update grammar
+
 **Version 0.7.1**
 1. Add .swirl as a recognized extension
 1. Fix class name color
