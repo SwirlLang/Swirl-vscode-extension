@@ -27,11 +27,11 @@
                 },
                 {
                     "name": "variable.parameter",
-                    "match": "(?<=fn (\\w+).*(\\w+) )\\w+(?=.*\\))"
+                    "match": "(?<=fn (\\w+).*)\\w+(?=\\s*:\\s*\\w+)"
                 },
                 {
                     "name": "entity.name.type.swirl",
-                    "match": "(?<=fn (\\w+).*)\\w+(?= \\w+.*\\))"
+                    "match": "(?<=fn (\\w+).*:\\s*)\\w+(?=.*\\))"
                 },
                 {
                     "name": "storage.type.function.swirl",
@@ -95,8 +95,12 @@
                     "match": "(==|\\!=|\\<=|\\>=|\\<|\\>)(?!=)"
                 },
                 {
+                    "name": "keyword.operator.namespace.swirl",
+                    "match": "::"
+                },
+                {
                     "name": "keyword.control.swirl",
-                    "match": "\\b(for|while|override|private|public|protected|static)\\b"
+                    "match": "\\b(for|while|override|private|public|protected|static|as)\\b"
                 },
                 {
                     "name": "constant.language.swirl",
@@ -133,6 +137,10 @@
                 {
                     "name": "storage.type.var.swirl",
                     "match": "\\bvar\\b"
+                },
+                {
+                    "name": "storage.type.let.swirl",
+                    "match": "\\blet\\b"
                 },
                 {
                     "name": "constant.numeric.swirl",
